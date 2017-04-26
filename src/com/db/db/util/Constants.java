@@ -17,4 +17,7 @@ public class Constants {
 	public static final String CATEGORIES = "categories";
 	public static final String DEPARTMENTS = "departments";
 	public static final String EVENTS = "events";
+	
+	public static final String EVENTS_TABLE = "Campus_Events";
+	
 }
