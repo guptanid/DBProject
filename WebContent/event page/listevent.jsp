@@ -5,6 +5,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="listevent.css">
 </head>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
+           <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <body>
 <h1>List of Events</h1>
 <div class="container">
@@ -19,25 +22,14 @@
   </tr>
   </thead>
   <tbody>
+  <c:forEach var="eventList" items="${Event}">
   	<tr>
-  		<td> ashdscb</td>
-  		<td> ashdscb</td>
-  		<td> ashdscb</td>
+  		<td>${Event.Event}</td>
+  		<td>${Event.Location}</td>
+  		<td>${Event.Dep}</td>
   		<td> 
-  		<a href="#">link</a></td>
   	</tr>
-  	<tr>
-  		<td> ashdscb</td>
-  		<td> ashdscb</td>
-  		<td> ashdscb</td>
-  		<td> <a href="#">link</a></td></td>
-  	</tr>
-  	<tr>
-  		<td> ashdscb</td>
-  		<td> ashdscb</td>
-  		<td> ashdscb</td>
-  		<td> <a href="#">link</a></td></td>
-  	</tr>
+  	</c:forEach>
   </tbody>
 </table>
 </div>
