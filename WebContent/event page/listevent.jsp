@@ -42,7 +42,7 @@
 </table>
 </div>
 </div>
-
+/event?id=all
 
 
 
