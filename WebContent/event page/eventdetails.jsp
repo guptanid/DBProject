@@ -13,7 +13,7 @@
 <form class="form-horizontal" action="event" method="post">
 <input type="hidden" name="action" value="insert" />
   <div class="form-group">
-  <input type = "Event" name = "Event">
+  <input type = "Event" name = "Event" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Event Name</label>
     <div class="col-sm-10">
       <span id="eventname"></span>
@@ -21,7 +21,7 @@
 	  </div>
   
   <div class="form-group">
-  <input type = "Location" name = "Location">
+  <input type = "Location" name = "Location" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Location</label>
     <div class="col-sm-10">
       <span id="location">#</span>
@@ -29,7 +29,7 @@
   </div>
 
     <div class="form-group">
-    <input type = "Sdate" name = "Sdate">
+    <input type = "Sdate" name = "Sdate" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Start Date</label>
     <div class="col-sm-10">
       <span id="startdate">#</span>
@@ -37,7 +37,7 @@
   </div>
 
    <div class="form-group">
-       <input type = "Edate" name = "Edate">
+       <input type = "Edate" name = "Edate" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">End Date</label>
     <div class="col-sm-10">
       <span id="enddate">#</span>
@@ -45,7 +45,7 @@
   </div>
 
   <div class="form-group">
-      <input type = "Stime" name = "Stime">
+      <input type = "Stime" name = "Stime" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Start time</label>
     <div class="col-sm-10">
       <span id="starttime">#</span>
@@ -53,7 +53,7 @@
   </div>
 
   <div class="form-group">
-      <input type = "Etime" name = "Etime">
+      <input type = "Etime" name = "Etime" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">End time</label>
     <div class="col-sm-10">
       <span id="endtime">#</span>
@@ -61,7 +61,7 @@
   </div>
 
    <div class="form-group">
-         <input type = "Dep" name = "Dep">
+         <input type = "Dep" name = "Dep" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Department</label>
     <div class="col-sm-10">
       <div>
@@ -70,7 +70,7 @@
     </div>
   </div>
    <div class="form-group">
-            <input type = "Cat" name = "Cat">
+            <input type = "Cat" name = "Cat" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
     <div class="col-sm-10">
       <div>
@@ -80,7 +80,7 @@
   </div>
 
    <div class="form-group">
-            <input type = "Des" name = "Des">
+            <input type = "Des" name = "Des" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
       <span id="desciption">#</span>
