@@ -10,96 +10,96 @@
 <h1>Update Event</h1>
  <div class="container">
  <div class="jumbotron">
-<form class="form-horizontal">
+<form class="form-horizontal" action="event" method="post">
+<input type="hidden" name="action" value="update" />
   <div class="form-group">
+  <input type = "Event" name = "Event" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Event Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Event Name">
+      <span id="eventname"></span>
     </div>
 	  </div>
+  
   <div class="form-group">
+  <input type = "Location" name = "Location" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Location</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="location">
+      <span id="location">#</span>
     </div>
   </div>
+
     <div class="form-group">
+    <input type = "Sdate" name = "Sdate" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Start Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="inputEmail3" >
+      <span id="startdate">#</span>
     </div>
   </div>
+
    <div class="form-group">
+       <input type = "Edate" name = "Edate" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">End Date</label>
     <div class="col-sm-10">
-      <input type="Date" class="form-control" id="inputEmail3">
+      <span id="enddate">#</span>
     </div>
   </div>
+
   <div class="form-group">
+      <input type = "Stime" name = "Stime" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Start time</label>
     <div class="col-sm-10">
-      <input type="time" class="form-control" id="inputEmail3">
+      <span id="starttime">#</span>
     </div>
   </div>
+
   <div class="form-group">
+      <input type = "Etime" name = "Etime" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">End time</label>
     <div class="col-sm-10">
-      <input type="time" class="form-control" id="inputEmail3">
+      <span id="endtime">#</span>
     </div>
   </div>
+
    <div class="form-group">
+         <input type = "Dep" name = "Dep" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Department</label>
     <div class="col-sm-10">
-      <div class="btn-group">
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Department Type <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    ...
-  </ul>
+      <div>
+  <span id="department">#</span>
 </div>
     </div>
   </div>
    <div class="form-group">
+            <input type = "Cat" name = "Cat" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
     <div class="col-sm-10">
-      <div class="btn-group">
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Category Type <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    ...
-  </ul>
+      <div>
+      <span id="category">#</span>
 </div>
     </div>
   </div>
 
    <div class="form-group">
+            <input type = "Des" name = "Des" required/>
     <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
-      <textarea class="form-control" rows="3"></textarea>
+      <span id="desciption">#</span>
     </div>
   </div>
-
-  <div class="row form-group">
+<div class="row form-group">
 <div class="col-sm-4"></div>
 <div class="col-sm-2">
-  <input id="update" class="btn btn-default " type="submit" value="Update">
+  <input id="delete" class="btn btn-default " type="button" value="delete">
   </div>
   <div class="col-sm-2">
-  <input id="cancel" class="btn btn-default" type="button" value="cancel">
+  <input id="edit" class="btn btn-default" type="button" value="Edit">
 </div>
  </div>
-
- 
-
-
 
   </div>
   
 
 </div>
-
 
 
 <script type="text/javascript"
