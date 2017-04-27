@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.CallableStatement;
@@ -23,9 +24,10 @@ public class EventAccessor {
 	public List<Event> selectAllEvents() {
 		CallableStatement cs = null;
 		List<Event> events = new ArrayList<Event>();
+		ResultSet rs = null;
 		try {
 			cs = this.connection.prepareCall("{CALL GetAllEvents()}");
-			ResultSet rs = cs.executeQuery();
+			rs = cs.executeQuery();
 			while (rs.next()) {
 				Event event = asEvent(rs);
 				if(event != null) {
@@ -36,13 +38,21 @@ public class EventAccessor {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		} finally {
+			DbUtil.closeResultSet(rs);
+			try {
+				cs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public Event selectEvent(int id) {
 		ResultSet rs = null;
+		CallableStatement cs = null;
 		try {
-			CallableStatement cs = this.connection.prepareCall("{CALL GetEventDetails(?)}");
+			cs = this.connection.prepareCall("{CALL GetEventDetails(?)}");
 			cs.setInt(1, id);
 			rs = cs.executeQuery();
 			while(rs.next()) {
@@ -51,6 +61,12 @@ public class EventAccessor {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				cs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
