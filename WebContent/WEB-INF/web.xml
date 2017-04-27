@@ -12,6 +12,6 @@
   	<servlet-mapping>/event</servlet-mapping>
   </servlet-mapping>
   <welcome-file-list>
-  	<welcome-file>/event</welcome-file>
+  	<welcome-file>/event?id=all</welcome-file>
   </welcome-file-list>
   </web-app>
