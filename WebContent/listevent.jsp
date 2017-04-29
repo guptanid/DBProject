@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Events List</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="listevent.css">
@@ -35,6 +35,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<form action="event" method=get>
+				<input type="submit" name="act" value="add" />
+			</form>
 		</div>
 	</div>
 

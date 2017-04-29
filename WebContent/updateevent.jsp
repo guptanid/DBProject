@@ -66,7 +66,8 @@
 					<label for="inputEmail3" class="col-sm-2 control-label">Department</label>
 					<div class="col-sm-10">
 						<div class="btn-group">
-							<select name="department">
+							<select name="department"
+								selected="${requestScope.event.getDepartment() }">
 								<c:forEach items="${requestScope.departments }" var="d">
 									<option value=${d.getId() }>${ d.getName() }</option>
 								</c:forEach>

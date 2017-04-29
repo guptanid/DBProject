@@ -79,7 +79,7 @@
 					<div class="col-sm-10">
 						<div class="btn-group">
 							<select name="category">
-								<c:forEach>
+								<c:forEach items="${requestScope.categories }" var="c">
 									<option value=${c.getId() }>${c.getName() }</option>
 								</c:forEach>
 							</select>
