@@ -9,9 +9,9 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>EventServlet</servlet-name>
-  	<servlet-mapping>/event</servlet-mapping>
+  	<url-pattern>/event</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-  	<welcome-file>/event?id=all</welcome-file>
+  	<welcome-file>event?id=all</welcome-file>
   </welcome-file-list>
   </web-app>

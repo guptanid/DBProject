@@ -6,7 +6,7 @@ import java.sql.Date;
 public class Event {
 
 	int id, categoryId, departmentId;
-	String location, name, description;
+	String location, name, description, category, department;
 	Date startDate, endDate;
 	Time startTime, endTime;
 	
@@ -95,6 +95,22 @@ public class Event {
 
 	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 	
 }

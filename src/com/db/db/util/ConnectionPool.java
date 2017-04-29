@@ -14,7 +14,7 @@ public class ConnectionPool {
 	private ConnectionPool () {
         try {
             InitialContext context = new InitialContext();
-            dataSource = (DataSource) context.lookup("java:/comp/env/jdbc/SweetNewsDataSource");
+            dataSource = (DataSource) context.lookup("java:/comp/env/jdbc/ExperientialLearningDB");
             if(dataSource == null) {
                 System.out.println("DATASOURCE IS NULL");
             }

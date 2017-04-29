@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +22,18 @@
   </tr>
   </thead>
   <tbody>
+  
+  <c:forEach items="${requestScope.events}" var="e">
+  	<tr>
+  		<td>
+  			<a href="<c:url value="event?action=getEvent&id=${e.getId()}" />" >
+  				${e.getDescription() }
+  			</a>
+  		</td>
+  		<td>${e.getLocation() }</td>
+  		<td>${e.getDepartment() }</td>
+  	</tr>
+  </c:forEach>
   	<tr>
   		<td> ashdscb</td>
   		<td> ashdscb</td>
