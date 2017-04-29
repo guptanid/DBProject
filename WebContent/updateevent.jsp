@@ -14,7 +14,7 @@
 	<h1>Update Event</h1>
 	<div class="container">
 		<div class="jumbotron">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="event" method="GET">
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label">Event
 						Name</label>
@@ -87,25 +87,20 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label">Description</label>
-					<div class="col-sm-10">
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-				</div>
-
+				<input type="hidden" name="id" value=${requestScope.event.getId() } />
 				<div class="row form-group">
 					<div class="col-sm-4"></div>
 					<div class="col-sm-2">
 						<input id="update" class="btn btn-default " type="submit"
-							value="Update">
+							name="action" value="Update" onclick="this.form.method='POST'">
 					</div>
 					<div class="col-sm-2">
-						<input id="cancel" class="btn btn-default" type="button"
+						<input id="cancel" class="btn btn-default" type="submit"
 							value="cancel">
 					</div>
-				</div>
+			</form>
 		</div>
+	</div>
 
 
 	</div>

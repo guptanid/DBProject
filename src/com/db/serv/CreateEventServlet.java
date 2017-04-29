@@ -36,10 +36,13 @@ public class CreateEventServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Entered doPost");
 		String action = getParamIfAvailable(request, "action");
+		
 		String url = null;
 		if(action == null) {
 			url = "/listevent.jsp";
+			loadEventList(request);
 		} else {
 			
 		}
@@ -50,20 +53,21 @@ public class CreateEventServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered doGet");
-		String eventId = getParamIfAvailable(req, "id");
 		String act = getParamIfAvailable(req, "act");
+		String eventId = getParamIfAvailable(req, "id");
+		EventAccessor eventAccessor = null;
+		Connection connection = null;
+		ConnectionPool pool = ConnectionPool.getInstance();
+		connection = pool.getConnection();
+		eventAccessor = new EventAccessor(connection);
+		
 		String url = null;
 		if(eventId != null) {
-			Connection connection = null;
-			ConnectionPool pool = ConnectionPool.getInstance();
-			connection = pool.getConnection();
-			EventAccessor eventAccessor = new EventAccessor(connection);
 			
 			
 			if(eventId.equalsIgnoreCase("all")) 
 			{
-				List<Event> events = eventAccessor.selectAllEvents();
-				req.setAttribute("events", events);
+				loadEventList(req, eventAccessor);
 				url = "/listevent.jsp";
 			} else 
 			{
@@ -87,23 +91,20 @@ public class CreateEventServlet extends HttpServlet {
 			}
 			pool.freeConnection(connection);
 		} else {
-			url = "/event.jsp";
+			if(act != null && "add".equalsIgnoreCase(act)) {
+				loadCategories(req, eventAccessor);
+				loadDepartments(req, eventAccessor);
+				url = "/event.jsp";
+			} else {
+				url = "/listevent.jsp";
+				loadEventList(req, eventAccessor);
+			}
 		}
 		if(url == null) {
 			url = "/listevent.jsp";
 		}
 		
 		getServletContext().getRequestDispatcher(url).forward(req, resp);
-	}
-
-	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String act = getParamIfAvailable(req, "act");
-		if(act != null) {
-			if(act.equalsIgnoreCase("delete")) {
-				
-			}
-		}
 	}
 
 	private String getParamIfAvailable(HttpServletRequest req, String param) {
@@ -135,5 +136,18 @@ public class CreateEventServlet extends HttpServlet {
 		List<Department> departments = null;
 		departments = eventAccessor.selectAllDepartments();
 		req.setAttribute("departments", departments);
+	}
+	
+	private void loadEventList(HttpServletRequest req) {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection connection = pool.getConnection();
+		EventAccessor eventAccessor = new EventAccessor(connection);
+		loadEventList(req, eventAccessor);
+		pool.freeConnection(connection);
+	}
+	
+	private void loadEventList(HttpServletRequest req, EventAccessor eventAccessor) {
+		List<Event> events = eventAccessor.selectAllEvents();
+		req.setAttribute("events", events);
 	}
 }
